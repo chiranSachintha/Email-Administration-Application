@@ -25,6 +25,7 @@ public class Email {
         this.firstName = firstName;
         this.lastName = lastName;
         this.department=setDepart();
+        this.password = randomPassword(8);
     }
     
     //set department
@@ -48,4 +49,18 @@ public class Email {
         
         return department;
     }
+    private String randomPassword(int length){
+        String passwordSet="abcdefghijklmnopqrstuvwxyz0123456789@#!";
+        char[] password= new char[length];
+        for(int i =0; i<length; i++){
+            int rand = (int)(Math.random()*(passwordSet.length()-1));
+            password[i]=passwordSet.charAt(rand);
+        }
+        return new String(password);
+    }
+    public String getPassword(){
+        return this.password;
+    }
+        
+        
 }
